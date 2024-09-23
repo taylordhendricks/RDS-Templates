@@ -38,6 +38,8 @@ $logFilePath        = "C:\Windows\Logs\"
 $logFileName        = "zoomVDI_MSI_$timestamp.log"
 $logFileFullPath    = Join-Path -Path $logFilePath -ChildPath $logFileName
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Create Temp Directories if they don't exist
 foreach ($path in @($localTemp, $localPath)) {
     if (-not (Test-Path -Path $path)) {
@@ -52,7 +54,9 @@ foreach ($path in @($localTemp, $localPath)) {
 $installerPath = Join-Path -Path $localPath -ChildPath $zoomVDIInstaller
 try {
     Write-Host "AVD AIB Customization:- Install ZoomVDI: Downloading Zoom VDI installer from $zoomVDI_URL"
-    Invoke-WebRequest -Uri $zoomVDI_URL -OutFile $installerPath -ErrorAction Stop
+    #Invoke-WebRequest -Uri $zoomVDI_URL -OutFile $installerPath -ErrorAction Stop
+    $wc = new-object System.Net.WebClient
+    $wc.DownloadFile("$zoomVDI_URL","$installerPath")
 } catch {
     Write-Host "AVD AIB Customization:- Install ZoomVDI: ERROR, Failed to download Zoom VDI installer: $_"
     exit 1
@@ -72,7 +76,8 @@ $msiArguments = @(
 )
 
 try {
-    $zoomVDI_deploy_status = Start-Process -FilePath "msiexec.exe" -ArgumentList $msiArguments -Wait -PassThru -ErrorAction Stop
+    Write-Host "Installing ZOOMMMMMMMM with $msiArguments"
+    #$zoomVDI_deploy_status = Start-Process -FilePath "msiexec.exe" -ArgumentList $msiArguments -Wait -PassThru -ErrorAction Stop
 } catch {
     Write-Host "AVD AIB Customization:- Install ZoomVDI: ERROR Zoom VDI installation failed: $_"
     exit 1
