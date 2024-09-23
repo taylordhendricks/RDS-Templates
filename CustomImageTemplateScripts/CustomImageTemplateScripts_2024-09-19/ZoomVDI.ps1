@@ -29,7 +29,7 @@ param(
 )
 
 # Variables
-$zoomVDI_URL        = "https://zoom.us/client/vdi/$zoomVDI_Version/ZoomInstallerVDI.msi?archType=x64"
+$zoomVDI_URL        = "https://zoom.us/download/vdi/$zoomVDI_Version/ZoomInstallerVDI.msi?archType=x64"
 $localTemp          = "C:\temp"
 $localPath          = Join-Path -Path $localTemp -ChildPath 'zoomVDI'
 $zoomVDIInstaller   = 'ZoomInstallerVDI.msi'
