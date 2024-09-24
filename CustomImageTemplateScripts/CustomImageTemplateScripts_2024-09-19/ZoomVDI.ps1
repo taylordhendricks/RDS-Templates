@@ -76,8 +76,8 @@ $msiArguments = @(
 )
 
 try {
-    Write-Host "Installing ZOOMMMMMMMM with $msiArguments"
-    #$zoomVDI_deploy_status = Start-Process -FilePath "msiexec.exe" -ArgumentList $msiArguments -Wait -PassThru -ErrorAction Stop
+    Write-Host "Installing Zoom with the following Arguments $msiArguments"
+    $zoomVDI_deploy_status = Start-Process -FilePath "msiexec.exe" -ArgumentList $msiArguments -Wait -PassThru -ErrorAction Stop
 } catch {
     Write-Host "AVD AIB Customization:- Install ZoomVDI: ERROR Zoom VDI installation failed: $_"
     exit 1
