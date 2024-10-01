@@ -21,6 +21,8 @@
     Date: 09/19/2024
     Version: 1.1
 
+    !!!If using this for your AVD Custom Image templates fork and change the $zSSOHost below
+
 #>
 
 param(
