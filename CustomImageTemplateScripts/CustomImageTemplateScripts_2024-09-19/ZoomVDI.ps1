@@ -7,10 +7,12 @@
 
 .PARAMETER zoomVDI_Version
     The version of Zoom VDI to install.
+    This will need to be updated below whenever a new version is released, I've yet to find a method to get latest from Zoom
     Reference: [Zoom VDI Releases](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0063810)
 
 .PARAMETER zSSOHost
     The SSO host for Zoom configuration.
+    If using this for your AVD Custom Image templates fork and change the $zSSOHost below
     Reference: [Zoom VDI CLI Configuration](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0064484#h_01FW2JNVWMVKJX9A10EV3TRTMB)
 
 .EXAMPLE
