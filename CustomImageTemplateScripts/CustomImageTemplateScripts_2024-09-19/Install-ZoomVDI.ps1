@@ -28,7 +28,7 @@
 #>
 
 param(
-    [string]$zoomVDI_Version = "6.1.10.25260",
+    [string]$zoomVDI_Version = "6.1.12.25370",
     [string]$zSSOHost = "hyland.com"
 )
 
